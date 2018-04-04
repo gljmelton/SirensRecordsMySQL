@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <h1>Sirens Records Data Manager</h1>
+</head>
+
+<?php
+include 'Connection.php';
+include 'SirensRecordsQuery.php';
+
+if (isset($_POST['Add CD'])){
+  AddCD();
+}
+if(isset($_POST['Remove CD'])){
+  RemoveCD();
+}
+if(isset($_POST['Add Distributor'])){
+  AddDistributor();
+}
+if(isset($_POST['Remove Distributor'])){
+  RemoveDistributor();
+}
+if(isset($_POST['Add Time Period'])){
+  AddTime();
+}
+?>
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+<b>Add CD</b></br>
+CD Title
+<input type=text name="CD Title" /></br>
+Artist
+<input type=text name="Artist" / /></br>
+UPC
+<input type=number name="UPC" /></br>
+<input type=submit name="Add CD" /></br>
+</form>
+
+</br></br>
+
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+  <b>Remove CD</b></br>
+  CD Title
+  <input type=text name="Remove CD Title" /></br>
+  Artist
+  <input type=text name="Remove CD Artist" /></br>
+  UPC
+  <input type=number name="Remove CD UPC" /></br>
+  <input type=submit name="Remove CD" /></br>
+</form>
+
+</br></br>
+
+<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+<b>Add Distributor</b></br>
+Distributor Name
+<input type=text name="DistName" /></br>
+CD Cost
+<input type=number step=0.01 name="CDCost" /></br>
+<input type=submit name="Add Distributor" /></br>
+
+</br></br>
+
+<form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+<b>Remove Distributor</b></br>
+Distributor Name
+<input type=text name="RemoveDistName" /></br>
+CD Cost
+<input type=number name="RemoveDistCDCost" /></br>
+<input type=submit name="Remove Distributor" /></br>
+
+</form>
+
+</br></br>
+
+<b>Add Time Period</b></br>
+Month
+<select name="months">
+<option value="JanJun">January-June</option>
+<option value="JulDec">July-December</option>
+</select></br>
+Year
+<input type="number" name="year" /></br>
+<input type=submit name="Add Time Period" /></br>
+
+</html>
